@@ -1,0 +1,15 @@
+.advantage {
+	padding: 73px 0 65px 0;
+	text-align: center;
+	&__cards {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+@media (max-width: 767px) {
+	.advantage__cards {
+		flex-direction: column;
+	}
+}
