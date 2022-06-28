@@ -152,6 +152,36 @@ $('.modal__close').on('click', function() {
   $('.overlay, #consultation, #order, #thank').fadeOut();
 });
 
-$('.button_mini').on('click', function(){
-  $('.overlay, #order').fadeIn();
+$('.button_mini').each(function(i){
+  $(this).on('click', function(){
+    $('#order .modal__descr').text($('.catalog-item__title').eq(i).text());
+    $('.overlay, #order').fadeIn('slow');
+  });
 });
+
+
+function validateForm (form) {
+  $(form).validate({
+    rules: {
+      name: "required",
+      phone: 'required',
+      email: {
+        required: true,
+        email: true
+      }
+    },
+    messages: {
+      name: "Введите ваше имя",
+      phone: "Введите номер телефона",
+      email: {
+        required: "Введите вашу почту",
+        email: "Неправильный формат почты"
+      }
+    },
+    errorClass: 'invalid'
+  });
+}
+
+validateForm('#consultation form');
+validateForm('.consultation_form');
+validateForm('#order form');
