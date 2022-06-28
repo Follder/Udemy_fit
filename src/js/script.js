@@ -185,3 +185,5 @@ function validateForm (form) {
 validateForm('#consultation form');
 validateForm('.consultation_form');
 validateForm('#order form');
+
+$("input[name=phone]").mask("+38 (999) 999-9999");
